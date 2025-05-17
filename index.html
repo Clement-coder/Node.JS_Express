@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<div id="container">
+
+</div>
+
+    <script>
+        fetch('https://test.blockfuselabs.com/api/categories')
+        .then(response => response.json())
+        .then(data => {
+            let mainConatainer = document.getElementById("container");
+            
+            data.forEach(element => {
+                let categorySpan = document.createElement("span");
+                let categoryParagraph = document.createElement("p");
+                categorySpan.textContent = element.name
+                categoryParagraph.textContent = element.slug
+                categorySpan.style.display = 'block'
+                mainConatainer.appendChild(categorySpan);
+                // mainConatainer.appendChild(categoryParagraph);
+
+            });
+
+              
+            data.forEach(element => {
+                // let categorySpan = document.createElement("span");
+                let categoryParagraph = document.createElement("p");
+                // categorySpan.textContent = element.name
+                categoryParagraph.textContent = element.slug
+                categoryParagraph.style.display = 'block'
+                // mainConatainer.appendChild(categorySpan);
+                mainConatainer.appendChild(categoryParagraph);
+
+            });
+
+          console.log("Books:", data);
+        })
+        .catch(error => {
+          console.error("Error fetching books:", error);
+        });
+    </script>
+</body>
+</html>
