@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,6 +35,7 @@
                 let categoryParagraph = document.createElement("p");
                 // categorySpan.textContent = element.name
                 categoryParagraph.textContent = element.slug
+                
                 categoryParagraph.style.display = 'block'
                 // mainConatainer.appendChild(categorySpan);
                 mainConatainer.appendChild(categoryParagraph);
@@ -47,5 +48,213 @@
           console.error("Error fetching books:", error);
         });
     </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Registration Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+ <style>
+    .eyelid {
+      transition: transform 0.4s ease-in-out;
+    }
+
+    .beast-btn:hover .eyelid-top {
+      transform: translateY(0);
+    }
+
+    .beast-btn:hover .eyelid-bottom {
+      transform: translateY(0);
+    }
+
+    .eyelid-top {
+      transform: translateY(-100%);
+    }
+
+    .eyelid-bottom {
+      transform: translateY(100%);
+    }
+
+    .glow {
+      transition: opacity 0.4s ease-in-out;
+      opacity: 0;
+    }
+
+    .beast-btn:hover .glow {
+      opacity: 1;
+    }
+  </style>
+
+</head>
+<body>
+
+ <div class="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl">
+  <h2 class="text-2xl font-bold mb-4 text-center">Register 🚀</h2>
+  <form id="registerForm" class="space-y-4">
+    <input class="w-full p-2 border rounded" type="text" id="name" placeholder="Name" required />
+    <input class="w-full p-2 border rounded" type="email" id="email" placeholder="Email" required />
+    <input class="w-full p-2 border rounded" type="password" id="password" placeholder="Password" required />
+    <input class="w-full p-2 border rounded" type="text" id="team" placeholder="Team (e.g., 404, Elon)" required />
+    <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600" type="submit">Register</button>
+  </form>
+  <p id="responseMessage" class="mt-4 text-center text-sm text-gray-600"></p>
+
+  <button class="relative px-6 py-3 font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-lg 
+hover:from-pink-500 hover:to-yellow-500 hover:scale-105 hover:rotate-1 transition-all duration-500 ease-in-out 
+before:absolute before:-inset-1 before:bg-gradient-to-r before:from-indigo-500 before:to-purple-500 
+before:blur-lg before:opacity-0 hover:before:opacity-100 before:rounded-xl before:z-[-1]">
+  Stay Toxic 💀
+</button>
+
+<button class="relative inline-block px-6 py-3 font-semibold tracking-wide text-white bg-black rounded-lg overflow-hidden group">
+  <span class="absolute inset-0 w-full h-full transition-transform duration-500 ease-out transform -translate-x-full bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500 group-hover:translate-x-0 opacity-60 blur-sm"></span>
+  <span class="relative z-10">Stay Toxic 💀</span>
+</button>
+
+<button class="px-6 py-3 rounded-xl text-black backdrop-blur-md bg-white/10 border border-white/20 shadow-lg hover:shadow-purple-500/40 transition-all duration-500 hover:scale-105">
+  Stay Toxic 💅
+</button>
+
+<button class="relative px-6 py-3 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 text-white font-bold rounded-full shadow-md transition-all duration-300 hover:shadow-xl hover:scale-110 hover:animate-pulse">
+  Stay Toxic 😈
+</button>
+<button class="relative bg-black px-6 py-3 text-purple-600 border-2 border-purple-600 font-semibold rounded-lg overflow-hidden group hover:text-white transition-all duration-300">
+  <span class="absolute left-0 top-0 w-full h-0 bg-purple-600 transition-all duration-300 ease-in-out group-hover:h-full z-[-1]"></span>
+  Stay Toxic 💀
+</button>
+
+<button class="relative px-6 py-3 text-white font-bold bg-black border-2 border-lime-400 rounded-md overflow-hidden group">
+  <span class="absolute left-0 w-full h-1 bg-lime-400 top-0 translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-300"></span>
+  <span class="absolute right-0 w-full h-1 bg-lime-400 bottom-0 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"></span>
+  <span class="relative z-10">Stay Toxic 👾</span>
+</button>
+
+<button class="px-6 py-3 bg-blue-600 text-white font-bold rounded-xl transition transform duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 active:translate-y-0">
+  Stay Toxic 🍬
+</button>
+<button class="relative px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl shadow-lg 
+hover:bg-indigo-700 transition duration-300 before:absolute before:inset-0 before:rounded-xl 
+before:bg-indigo-400 before:blur-xl before:opacity-0 hover:before:opacity-50 before:z-[-1]">
+  Stay Toxic 🔮
+</button>
+<button class="relative px-6 py-3 font-bold text-white rounded-lg bg-gradient-to-r from-red-500 via-yellow-400 to-pink-500 
+animate-pulse hover:animate-none hover:scale-105 transition-all duration-300 shadow-xl overflow-hidden group">
+  <span class="absolute inset-0 bg-gradient-to-r from-red-600 via-yellow-500 to-pink-600 blur-lg opacity-30 group-hover:opacity-60 transition-all duration-500"></span>
+  <span class="relative z-10">🔥 Stay Toxic 🔥</span>
+</button>
+<button class="px-6 py-3 text-white font-bold bg-black border-2 border-white rounded-lg relative overflow-hidden transition duration-300 group">
+  <span class="absolute w-0 h-0 border-[30px] border-transparent border-t-pink-500 top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-70 group-hover:animate-ping"></span>
+  <span class="relative z-10">💣 Stay Toxic</span>
+</button>
+<button class="relative px-6 py-3 text-white font-extrabold bg-[#111] border border-white rounded-md overflow-hidden group">
+  <span class="absolute left-0 top-0 w-full h-full bg-[#0ff] opacity-10 animate-ping z-[-1] group-hover:animate-glitch"></span>
+  <span class="relative z-10">Stay Toxic 👾</span>
+</button>
+
+
+<button class="relative px-8 py-4 text-white font-bold rounded-full bg-black shadow-lg 
+before:absolute before:inset-0 before:rounded-full before:border-2 before:border-cyan-400 
+before:animate-pulse before:opacity-40 before:scale-110 before:z-[-1] hover:before:opacity-80 hover:scale-105 transition-all duration-300">
+  💀 Stay Toxic 💀
+</button>
+
+<button class="relative px-6 py-3 text-white bg-black font-bold uppercase overflow-hidden rounded-lg shadow-lg group">
+  <span class="absolute inset-0 bg-red-700 transform scale-y-0 origin-top transition-transform duration-300 group-hover:scale-y-50 z-0"></span>
+  <span class="absolute inset-0 bg-red-700 transform scale-y-0 origin-bottom transition-transform duration-300 group-hover:scale-y-50 z-0"></span>
+  <span class="relative z-10">👁️ Stay Toxic</span>
+</button>
+<button class="relative px-8 py-4 bg-black text-white font-extrabold rounded-lg overflow-hidden group text-xl tracking-wider shadow-lg transition-all duration-500">
+  <!-- TOP EYELID -->
+  <span class="absolute top-0 left-0 w-full h-1/2 bg-red-800 rounded-b-full transform scale-y-0 group-hover:scale-y-100 origin-top transition-all duration-300 delay-100 z-0"></span>
+
+  <!-- BOTTOM EYELID -->
+  <span class="absolute bottom-0 left-0 w-full h-1/2 bg-red-800 rounded-t-full transform scale-y-0 group-hover:scale-y-100 origin-bottom transition-all duration-300 delay-100 z-0"></span>
+
+  <!-- EYE GLOW -->
+  <span class="absolute inset-0 rounded-lg bg-red-600 opacity-0 group-hover:opacity-40 transition duration-300 blur-xl z-0"></span>
+
+  <!-- TEXT (eye pupil 👁️) -->
+  <span class="relative z-10">👁️ Stay Toxic 👁️</span>
+</button>
+
+
+  <button class="relative beast-btn group px-10 py-5 rounded-lg overflow-hidden font-extrabold text-white text-2xl tracking-widest shadow-xl">
+    
+    <!-- Glowing Eye -->
+    <span class="absolute inset-0 glow bg-red-600 blur-xl opacity-0 z-0"></span>
+    
+    <!-- Top Eyelid -->
+    <span class="absolute eyelid eyelid-top top-0 left-0 w-full h-1/2 bg-red-900 rounded-b-full z-10"></span>
+
+    <!-- Bottom Eyelid -->
+    <span class="absolute eyelid eyelid-bottom bottom-0 left-0 w-full h-1/2 bg-red-900 rounded-t-full z-10"></span>
+
+    <!-- Eye / Text -->
+    <span class="relative z-20">👁️ STAY TOXIC</span>
+    
+  </button>
+
+   <button class="relative group px-10 py-5 bg-neutral-900 text-white text-xl font-bold rounded-xl overflow-hidden shadow-xl tracking-widest">
+    
+    <!-- Glowing eye aura -->
+    <span class="absolute inset-0 bg-red-700 blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-300 z-0"></span>
+
+    <!-- Top Eyelid -->
+    <span class="absolute top-0 left-0 w-full h-1/2 bg-red-800 rounded-b-full transform scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300 z-10"></span>
+
+    <!-- Bottom Eyelid -->
+    <span class="absolute bottom-0 left-0 w-full h-1/2 bg-red-800 rounded-t-full transform scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-300 z-10"></span>
+
+    <!-- Eye pupil / text -->
+    <span class="relative z-20">👁️ STAY TOXIC</span>
+
+  </button>
+
+
+
+
+</div>
+
+  <!-- 👇 JavaScript goes here -->
+ <script>
+  const form = document.getElementById("registerForm");
+  const responseMsg = document.getElementById("responseMessage");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const team = document.getElementById("team").value;
+
+    try {
+      const res = await fetch("https://test.blockfuselabs.com/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "accept": "*/*"
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          team_name: team
+        })
+      });
+
+      const data = await res.json();
+      console.log(data); 
+      responseMsg.textContent = "✅ Registered successfully!";
+    } catch (err) {
+      console.error(err);
+      responseMsg.textContent = "❌ Failed to register.";
+    }
+  });
+</script>
+
+
 </body>
 </html>

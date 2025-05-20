@@ -50,6 +50,7 @@ app.get("/api/all", (req, res) => {
         message: "Successfully retrieved all books",
         data: books
     });
+    
 });
 
 app.get("/api/book/:isbn", (req, res) => {
@@ -68,6 +69,41 @@ app.get("/api/book/:isbn", (req, res) => {
         data: book
     });
 });
+
+// Update Book (PUT)
+
+app.put("/api/update/:isbn", (req, res) => {
+  const book = books.find(b => b.isbn === req.params.isbn);
+  if (!book) return res.status(404).send({ success: false, message: "Not found" });
+
+  Object.assign(book, req.body); // update fields
+  res.send({ success: true, message: "Updated", data: book });
+});
+
+
+//  Delete Book (DELETE)
+
+app.delete("/api/delete/:isbn", (req, res) => {
+  const i = books.findIndex(b => b.isbn === req.params.isbn);
+  if (i === -1) return res.status(404).send({ success: false, message: "Not found" });
+
+  res.send({ success: true, message: "Deleted", data: books.splice(i, 1)[0] });
+});
+
+// Filter by Author (GET)
+
+app.get("/api/author", (req, res) => {
+  const result = books.filter(b => b.author?.toLowerCase() === req.query.name?.toLowerCase());
+  res.status(result.length ? 200 : 404).send({
+    success: !!result.length,
+    message: result.length ? "Found" : "Not found",
+    data: result
+  });
+});
+
+
+
+
 
 app.listen(3000, () => {
     console.log("Server running on http://127.0.0.1:3000");
