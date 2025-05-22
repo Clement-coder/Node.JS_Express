@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create a New Post</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0f172a] flex flex-col items-center justify-start min-h-screen py-10 text-white">
+
+  <!-- Form Container -->
+  <div class="bg-[#1e293b] p-6 rounded-lg w-full max-w-md shadow-md">
+    <h2 class="text-2xl font-bold text-center mb-6 text-green-400">Create a New Post</h2>
+
+    <form id="postForm" class="space-y-4">
+      <input type="text" id="title" placeholder="Title" class="w-full p-2 rounded bg-[#334155] text-white" required>
+
+      <textarea id="content" placeholder="Content" class="w-full p-2 rounded bg-[#334155] text-white" required></textarea>
+
+      <input type="number" id="category-id" placeholder="Category ID (e.g. 3)" class="w-full p-2 rounded bg-[#334155] text-white" required>
+
+      <input type="file" id="image" accept="image/*" class="text-white">
+
+      <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded w-full hover:bg-green-600">Submit Post</button>
+    </form>
+  </div>
+
+  <!-- Where New Post Will Be Shown -->
+  <div id="postResult" class="mt-6 w-full max-w-md"></div>
+
+  <script>
+    document.getElementById("postForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById("title").value;
+      const content = document.getElementById("content").value;
+      const categoryId = document.getElementById("category-id").value;
+      const image = document.getElementById("image").files[0];
+
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("content", content);
+      formData.append("category_id", categoryId);
+
+      if (image) {
+        formData.append("featured_image", image);
+      }
+
+      fetch("https://test.blockfuselabs.com/api/posts", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const postDiv = document.createElement("div");
+          postDiv.className = "bg-[#1e293b] mt-4 p-4 rounded-lg shadow text-white";
+
+          postDiv.innerHTML = `
+            <h3 class="text-xl font-bold text-green-400 mb-2">Post Created Successfully 🎉</h3>
+            <p><span class="font-semibold">Title:</span> ${data.title}</p>
+            <p><span class="font-semibold">Content:</span> ${data.content}</p>
+            <p><span class="font-semibold">Category ID:</span> ${data.category_id}</p>
+          `;
+
+          document.getElementById("postResult").appendChild(postDiv);
+          alert("Post created successfully!");
+          document.getElementById("postForm").reset(); // Clear form
+        })
+        .catch((error) => {
+          console.error("❌ Error:", error);
+          alert("Something went wrong: " + error.message);
+        });
+    });
+  </script>
+</body>
+</html>
